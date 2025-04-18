@@ -23,13 +23,23 @@ public class SheepSpawner : MonoBehaviour
     {
         
     }
-    private void SpawnSheep()
+    /*private void SpawnSheep()
     { 
         Vector3 randomPosition = sheepSpawnPositions[Random.Range(0, sheepSpawnPositions.Count)].position; // 1
         GameObject sheep = Instantiate(sheepPrefab, randomPosition, sheepPrefab.transform.rotation); // 2
         sheepList.Add(sheep); // 3
         sheep.GetComponent<Sheep>().SetSpawner(this); // 4
+    }*/
+    private void SpawnSheep()
+    {
+        Vector3 randomPosition = sheepSpawnPositions[Random.Range(0, sheepSpawnPositions.Count)].position;
+        GameObject sheep = Instantiate(sheepPrefab, randomPosition, sheepPrefab.transform.rotation);
+        sheepList.Add(sheep);
+        sheep.GetComponent<Sheep>().SetSpawner(this);
+
+        AssignRainbowColor(sheep); // Add rainbow color
     }
+
 
 
     private IEnumerator SpawnRoutine() // 1
@@ -54,6 +64,21 @@ public class SheepSpawner : MonoBehaviour
         }
 
         sheepList.Clear();
+    }
+
+    // Change the color of the sheep randomly
+    private void AssignRainbowColor(GameObject sheep)
+    {
+        Renderer[] renderers = sheep.GetComponentsInChildren<Renderer>();
+
+        float hue = Random.Range(0f, 1f);
+        Color rainbowColor = Color.HSVToRGB(hue, 1f, 1f);
+
+        foreach (Renderer r in renderers)
+        {
+            r.material = new Material(r.material); 
+            r.material.color = rainbowColor;
+        }
     }
 
 }
