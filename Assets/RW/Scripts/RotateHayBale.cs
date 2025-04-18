@@ -6,6 +6,7 @@ public class RotateHayBale : MonoBehaviour
 {
     public float xRotationSpeed;
     public float yRotationSpeed;   
+    public float zRotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,6 @@ public class RotateHayBale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, yRotationSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, yRotationSpeed * Time.deltaTime, zRotationSpeed * Time.deltaTime);
     }
 }

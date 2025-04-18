@@ -694,12 +694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9f643fc45f4a7449b22e992c89fdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 17
   horizontalBoundary: 22
   hayBalePrefab: {fileID: 725360308505497372, guid: e55a58061bd320643b67e55304acf120,
     type: 3}
   haySpawnpoint: {fileID: 87532448}
-  shootInterval: 0.8
+  shootInterval: 0.5
 --- !u!1 &1508344888
 GameObject:
   m_ObjectHideFlags: 0
