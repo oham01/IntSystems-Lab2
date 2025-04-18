@@ -35,6 +35,8 @@ public class Sheep : MonoBehaviour
 
     private void HitByHay()
     {
+        SoundManager.Instance.PlaySheepHitClip();
+
         sheepSpawner.RemoveSheepFromList(gameObject);
         hitByHay = true; // 1
         runSpeed = 0; // 2
@@ -44,7 +46,7 @@ public class Sheep : MonoBehaviour
         TweenScale tweenScale = gameObject.AddComponent<TweenScale>(); ; // 1
         tweenScale.targetScale = 0; // 2
         tweenScale.timeToReachTarget = gotHayDestroyDelay; // 3
-
+        
 
     }
 
@@ -64,6 +66,8 @@ public class Sheep : MonoBehaviour
 
     private void Drop()
     {
+        SoundManager.Instance.PlaySheepDroppedClip();
+
         sheepSpawner.RemoveSheepFromList(gameObject);
         myRigidbody.isKinematic = false; // 1
         myCollider.isTrigger = false; // 2
